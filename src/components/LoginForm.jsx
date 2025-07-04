@@ -4,13 +4,14 @@ import validate from '../utils/validate';
 const LoginForm = () => {
 
   const [isSignIn, setIsSignIn] = useState(true);
+  const [errMsg, setErrMsg] = useState(null)
 
   const handleSignIn = () => {
     setIsSignIn(!isSignIn)
   }
 
   const fName = useRef(null);
-  const email=useRef(null);
+  const email = useRef(null);
   const password = useRef(null);
 
   const handleSubmit=()=>{
