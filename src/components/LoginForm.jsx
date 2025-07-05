@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import validate from '../utils/validate';
+import auth from '../utils/firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 
 const LoginForm = () => {
 
@@ -14,23 +16,45 @@ const LoginForm = () => {
   const email = useRef(null);
   const password = useRef(null);
 
-  const handleSubmit=()=>{
-    const errMsg = validate(email.current.value,password.current.value,fName.current.value);
-    console.log(errMsg)
+  const handleSubmit = () => {
+    const err = validate(email.current.value, password.current.value);
+    setErrMsg(err);
+    if (err) return;
+
+    if (!isSignIn) {
+      createUserWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrMsg(errorCode + " - " + errorMessage)
+        });
+    } else {
+      signInWithEmailAndPassword(auth, email.current.value, password.current.value)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user, "SIGNED IN")
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrMsg(errorCode + " - " + errorMessage)
+        });
+    }
   }
 
   return (
-    <div className="w-1/4 bg-black/70 px-14 py-10 flex flex-col items-start">
+    <div className="sm:w-[340px] md:w-[420px] lg:w-[476px] bg-black/70 px-14 py-10 flex flex-col items-start">
       <h1 className='text-3xl font-bold text-white mb-5'>{isSignIn ? "Sign In" : "Sign Up"}</h1>
       <div className='flex flex-col items-center w-full'>
         {!isSignIn && <input type='text' name="name" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='full name' ref={fName}></input>}
         <input type='text' name="email" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='email or mobile number' ref={email}></input>
-        <input type='text' name="password" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='Password' ref = {password}></input>
-
-        {/* {errMsg.email && <p className='text-red-500'>errMsg.email</p>}
-        {errMsg.password && <p className='text-red-500'>errMsg.password</p>}
-        {errMsg.fName && <p className='text-red-500'>errMsg.fName</p>} */}
-        <button className={`${isSignIn ? "my-2" : "mt-2 mb-7"} text-white bg-red-600 p-2 font-semibold rounded-sm w-full`} onClick={handleSubmit}>
+        <input type='text' name="password" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='Password' ref={password}></input>
+        {errMsg && <p className='text-red-500'>{errMsg}</p>}
+        <button className={`${isSignIn ? "my-2" : "mt-2 mb-7"} text-white bg-cyan-800 p-2 font-semibold rounded-sm w-full`} onClick={handleSubmit}>
           {isSignIn ? "Sign In" : "Sign Up"}
         </button>
         {isSignIn && <><p className='text-white my-2'>
@@ -45,9 +69,8 @@ const LoginForm = () => {
         <input type='checkbox' />
         <span className='text-white'> Remember me</span>
       </label>}
-      <p className='text-gray-400 py-2'>{isSignIn ? "New to Netflix? " : "Already an user? "}<span className='text-white font-bold cursor-pointer' onClick={handleSignIn}>{isSignIn ? "Sign Up Now" : "Sign In Now"}</span></p>
-      <p className='text-gray-400 text-sm py-2'>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
-      <span className='underline text-sm mb-20'>Learn More</span>
+      <p className='text-gray-400 py-2'>{isSignIn ? "New to DevFlix? " : "Already an user? "}<span className='text-white font-bold cursor-pointer' onClick={handleSignIn}>{isSignIn ? "Sign Up Now" : "Sign In Now"}</span></p>
+
 
     </div>
   )
