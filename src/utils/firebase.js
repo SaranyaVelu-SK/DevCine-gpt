@@ -6,9 +6,9 @@ import { getAuth } from "firebase/auth";
 
 // Your web app's Firebase configuration
 
-const apikey = import.meta.env.VITE_API_KEY;
+const apiKey = import.meta.env.VITE_API_KEY;
 const firebaseConfig = {
-  apiKey:apikey,
+  apiKey:apiKey,
   authDomain: "devcine-gpt.firebaseapp.com",
   projectId: "devcine-gpt",
   storageBucket: "devcine-gpt.firebasestorage.app",
