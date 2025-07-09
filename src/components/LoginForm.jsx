@@ -38,7 +38,6 @@ const LoginForm = () => {
           }).then(() => {
             const {uid,email,displayName} = auth.currentUser;
             dispatch(addUser({ uid: uid, email:email, displayName: displayName}));
-            navigate('/browse')
           }).catch((error) => {
             // An error occurred
             // ...
@@ -53,20 +52,6 @@ const LoginForm = () => {
       signInWithEmailAndPassword(auth, email.current.value, password.current.value)
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate('/browse')
-          // updateProfile(user, {
-
-          // })
-      //     .then(() => {
-      //       console.log(auth.currentUser)
-      //       const {uid,name,displayName,photoURL} = auth.currentUser;
-      // dispatch(addUser({uid:uid,name:name,displayName:displayName,photoURL:photoURL}))
-      //       navigate('/browse')
-      //     })
-          // .catch((error) => {
-          //   // An error occurred
-          //   // ...
-          // });
         })
         .catch((error) => {
           const errorCode = error.code;
