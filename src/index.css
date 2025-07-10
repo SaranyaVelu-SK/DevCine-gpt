@@ -1,12 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
 
 @import "tailwindcss";
 
 .header-font{
     font-family: 'Bebas Neue', cursive;
-    color: 	#22D3EE;
-    font-size: 60px;
 }
-.subheader-font{
-    color:#FCD34D;
+
+.movie-overview-title{
+     font-family: "Righteous", sans-serif;
+     color: #FACC15; 
+}
+.movie-overview{
+    font-family: "Quicksand", sans-serif;
+    color: #D1D5DB;
 }

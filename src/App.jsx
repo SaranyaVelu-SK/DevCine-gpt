@@ -6,7 +6,6 @@ import { useDispatch } from 'react-redux';
 
 function App() {
 
-
   const appRouter = createBrowserRouter([
   {
     path: '/',

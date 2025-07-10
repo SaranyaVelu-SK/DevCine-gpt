@@ -14,7 +14,7 @@ const Header = () => {
 
     const handleSignOut = () => {
         signOut(auth).then(() => {
-            console.log(true)
+            // console.log(true)
             
         }).catch((error) => {
             console.log(error)
@@ -35,11 +35,11 @@ const Header = () => {
         return () =>{unsubscribe()}
     }, [])
 
-    console.log(user)
+    // console.log(user)
     return (
         <div className='bg-gradient-to-b from-black w-screen flex justify-between items-center'>
             <div className='flex py-4 items-center' >
-                <p className='header-font pl-6'>Dev<span className='subheader-font'>Cine</span></p>
+                <p className='header-font text-[#22D3EE] text-6xl pl-6'>Dev<span className='text-[#FCD34D]'>Cine</span></p>
             </div>
             {user && <div className='flex text-white p-5'>
                 <img className='w-15 h-12 pr-2' src={USER_PHOTO_URL} alt="user" />
