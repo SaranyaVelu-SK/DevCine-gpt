@@ -9,7 +9,6 @@ return (
   <div>
     <Header/>
     <MainContainer/>
-    <SecondaryContainer/>
   </div>
 )
 }
