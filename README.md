@@ -11,6 +11,7 @@
 - **Build Tool:** Vite  
 - **Editor Used:** VS Code
 - **Backend for Authentication:** Firebase
+- **State Management:** Redux
 
 ---
 
@@ -34,6 +35,26 @@
 - setup redux store
     - userSlice: actions - addUser and remove user
     - moviesSlice: action - addNowStreamingMovies,addMovieTrailer
+    -gptSlice :action - toggleToGPtSearch
 
-- created a hook to add all the streaming movies to the store : useNowStreamingMovies();
-- created a hook to add the trailer of a movie to the store and get when needed: useMovieTrailer
+    - created a hook to add all the streaming movies to the store : useNowStreamingMovies();
+    - created a hook to add the trailer of a movie to the store and get when needed: useMovieTrailer
+    - created a hook to get the upcoming movies, top rated movies and popular movies : usePopularMovies, useUpcomingMovies, useTopRatedMovies 
+
+---
+
+- **MainContainer**
+    - video title overlaid on videobackground
+    - used embedded youtube video link that will autoplay and muted
+
+---
+
+- **Secondary Container**
+    - contains movie categories, each category has n movies - horizontal scroll (scroll hidden)
+        - built movieList 
+        - built MovieCard
+
+---
+
+- **GPT Search**
+    - form with input and search bar
