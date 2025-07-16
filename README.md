@@ -58,3 +58,4 @@
 
 - **GPT Search**
     - form with input and search bar
+    - multi-language support in search bar

@@ -7,4 +7,5 @@ export const API_GET_OPTIONS_FOR_TMDB = {
   }
 };
 
-export const TMDB_IMG_CDN_URL = "https://image.tmdb.org/t/p/w780"
+export const TMDB_IMG_CDN_URL = "https://image.tmdb.org/t/p/w780";
+export const SUPPORTED_LANGUAGES = [{identifier:"en",name:"English"},{identifier:'tamil',name:"Tamil"},{identifier:'french',name:"French"}]
