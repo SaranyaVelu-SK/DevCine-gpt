@@ -52,7 +52,7 @@ const Header = () => {
     }
 
     return (
-        <div className={`bg-gradient-to-b from-black ${user ? "to-gray-950" : ""}  flex justify-between items-center relative`}>
+        <div className={` ${user ? "bg-gradient-to-b from-black to-gray-950" : ""}  flex justify-between items-center relative`}>
             <div className='flex py-4 items-center' >
                 <p className='header-font text-[#22D3EE] text-6xl pl-6'>Dev<span className='text-[#FCD34D]'>Cine</span></p>
             </div>
@@ -61,7 +61,7 @@ const Header = () => {
                     <option value=""  disabled>lang</option>
                     {SUPPORTED_LANGUAGES.map((lang) => <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>)}
                 </select>}
-                <button className='mx-2 bg-gradient-to-tl from-[#d3a307] to-[#FCD34D] font-semibold text-lg rounded-sm text-black px-2 py-1 ' onClick={toggleGptSearch}>{switchedToGptSearch ? "Home" : "GPT Search"}</button>
+                <button className='mx-2 bg-gradient-to-tl from-[#096472] to-cyan-600 font-semibold text-lg rounded-sm text-white px-2 py-1 ' onClick={toggleGptSearch}>{switchedToGptSearch ? "Home" : "Search"}</button>
                 <button onClick={handleSignOut} className=' bg-gradient-to-tl from-[#096472] to-cyan-600  text-lg font-semibold rounded-sm text-white px-2 py-1'>Sign Out</button>
                 <img className='w-15 h-12 pr-2 ' src={USER_PHOTO_URL} alt="user" onClick={displayUserName} />
                 {showUser && (<span className='absolute top-20 right-9 py-1 px-2 text-black bg-gray-100 rounded-sm'>{user?.displayName}</span>)}

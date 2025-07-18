@@ -7,7 +7,7 @@ const MainContainer = () => {
 
     const movies = useSelector(store => store.movies?.nowStreamingMovies);
     if(!movies) return;
-    const movieToDisplayInBG = movies[9];
+    const movieToDisplayInBG = movies[7];
     const{original_title,overview,id}=movieToDisplayInBG;
   return (
     <div >       
