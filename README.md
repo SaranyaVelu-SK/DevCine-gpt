@@ -12,6 +12,7 @@
 - **Editor Used:** VS Code
 - **Backend for Authentication:** Firebase
 - **State Management:** Redux
+- **Data:** The Movie DataBase
 
 ---
 
@@ -32,10 +33,11 @@
 
 ---
 
-- setup redux store
+- **redux store**
     - userSlice: actions - addUser and remove user
-    - moviesSlice: action - addNowStreamingMovies,addMovieTrailer
-    -gptSlice :action - toggleToGPtSearch
+    - moviesSlice: actions -  addNowStreamingMovies, addMovieTrailer, addPopularMovies, addTopRatedMovies, addUpcomingMovies, addSearchedMovies
+    - gptSlice: actions - toggleToGPtSearch, isMoveToMainPage
+    - appConfigSlice: actions - changeLanguage
 
     - created a hook to add all the streaming movies to the store : useNowStreamingMovies();
     - created a hook to add the trailer of a movie to the store and get when needed: useMovieTrailer
@@ -59,3 +61,9 @@
 - **GPT Search**
     - form with input and search bar
     - multi-language support in search bar
+    - movie suggestions
+    - search results
+
+- **General**
+    - Done Memoization
+    - Made Responsive
