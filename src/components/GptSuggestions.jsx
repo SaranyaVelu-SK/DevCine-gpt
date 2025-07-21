@@ -9,7 +9,7 @@ const GptSuggestions = () => {
   return (
     
         <div className='flex flex-col items-center my-10 text-4xl'>
-          {searchedMovies?.length<1 && (<p className='button-font text-white'>No resuts found !</p>)}
+          {searchedMovies?.length<1 && (<p className='button-font text-white mb-3'>No resuts found !</p>)}
           <h1 className='button-font text-white mb-10'>{searchedMovies?.length>0 ? "Search Results" : "You may also watch"}</h1>
           <div className='flex flex-wrap justify-center '>
             {searchedMovies?.length>0  ?

@@ -67,7 +67,7 @@ const LoginForm = () => {
       <div className='flex flex-col items-center w-full'>
         {!isSignIn && <input type='text' name="name" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='full name' ref={fName}></input>}
         <input type='text' name="email" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='email or mobile number' ref={email}></input>
-        <input type='text' name="password" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='Password' ref={password}></input>
+        <input type='password' name="password" className='text-white my-2 border p-3.5 border-gray-300 rounded-sm placeholder-white/50 w-full' placeholder='Password' ref={password}></input>
         {errMsg && <p className='text-red-500'>{errMsg}</p>}
         <button className={`${isSignIn ? "my-2" : "mt-2 mb-7"} text-white bg-cyan-800 p-2 font-semibold rounded-sm w-full`} onClick={handleSubmit}>
           {isSignIn ? "Sign In" : "Sign Up"}

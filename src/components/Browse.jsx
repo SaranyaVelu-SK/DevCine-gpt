@@ -13,12 +13,13 @@ const Browse = () => {
   usePopularMovies();
   useTopRatedMovies();
   useUpcomingMovies();
-  const switchedToGptSearch = useSelector(store => store?.gpt?.toggleToSearch)
+  const switchedToGptSearch = useSelector(store => store?.gpt?.toggleToSearch);
+  const moveToMainpage = useSelector(store =>store?.gpt?.moveToMainpage)
   return (
     <div className={switchedToGptSearch ?"":'bg-gray-950 '}>
       <Header />
       {
-        switchedToGptSearch ? <GptContainer /> : <>
+        (switchedToGptSearch && !moveToMainpage) ? <GptContainer /> : <>
           <MainContainer />
           <SecondaryContainer />
         </>
