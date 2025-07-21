@@ -1,7 +1,7 @@
 # DevCine-gpt
 
 **DevCine-gpt** is a Netflix-inspired web application enhanced with GPT-3 integration. It is built using web technologies like **React** and **Tailwind CSS**, and powered by the fast and lightweight **Vite** build tool.
-![Frontend Focussed](https://img.shields.io/badge/type-frontend--only-blue)
+![Frontend Focused](https://img.shields.io/badge/Frontend%20Focused-blue)
 
 ---
 
